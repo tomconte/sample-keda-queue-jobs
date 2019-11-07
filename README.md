@@ -65,10 +65,21 @@ Nothing will happen right away since our queue is empty!
 
 ## Send some messages to the queue
 
-The `send_messages.py` script can be used to send a bunch of messages to the queue. You will need to configure the `AzureWebJobsStorage` and `QUEUE_NAME` environment variables as defined above. To send e.g. a hundred messages:
+The `send_messages.py` script can be used to send a bunch of messages to the queue. First install the dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+You will also need to configure the `AzureWebJobsStorage` environment variable (assuming you defined `QUEUE_NAME` above):
 
 ```
 export AzureWebJobsStorage=$AZURE_STORAGE_CONNECTION_STRING
+```
+
+Let's send e.g. a hundred messages into the queue:
+
+```
 python send_messages.py 100
 ```
 
