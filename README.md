@@ -2,7 +2,7 @@
 
 This sample shows how to use [KEDA](https://github.com/kedacore/keda) to automatically schedule Kubernetes Jobs based on an Azure Storage Queue trigger.
 
-## Create an Azure Storage Queue
+## Create an Azure Storage Queue
 
 Using the Azure CLI, create a Resource Group, a Storage Account, and a Queue:
 
