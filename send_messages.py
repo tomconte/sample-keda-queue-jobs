@@ -12,5 +12,5 @@ except KeyError:
 
 queue = QueueClient.from_connection_string(conn_str=connection_string, queue_name=queue_name)
 
-for message in range(1, int(sys.argv[1])):
+for message in range(0, int(sys.argv[1])):
   queue.send_message(content='foo_'+str(message))
