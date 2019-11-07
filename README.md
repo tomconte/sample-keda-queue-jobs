@@ -90,3 +90,11 @@ Now you can watch jobs being automatically scheduled until the queue has been dr
 ```
 kubectl get jobs
 ```
+
+If anything goes wrong, it can be useful to check the logs of the KEDA operator to look for any error messages.
+
+```
+KOP=$(kubectl get pods -n keda -l app=keda-operator -o name)
+kubectl logs $KOP keda-operator -n keda
+```
+
