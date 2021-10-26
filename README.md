@@ -1,4 +1,10 @@
 # KEDA jobs with Azure Storage Queues
+### based on https://github.com/tomconte/sample-keda-queue-jobs but modified
+
+## Running the demo
+Follow the code fragments in script.sh
+
+## Original README
 
 This sample shows how to use [KEDA](https://github.com/kedacore/keda) to automatically schedule Kubernetes Jobs based on an Azure Storage Queue trigger.
 
