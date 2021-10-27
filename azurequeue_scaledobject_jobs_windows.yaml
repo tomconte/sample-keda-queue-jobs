@@ -1,0 +1,44 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledJob
+metadata:
+  name: azure-queue-scaledobject-jobs-win
+  namespace: default
+spec:
+  #scaleType: job
+  pollingInterval: 30
+  maxReplicaCount: 50
+  successfulJobsHistoryLimit: 10
+  failedJobsHistoryLimit: 10
+  jobTargetRef:
+    parallelism: 1
+    completions: 1
+    activeDeadlineSeconds: 600
+    backoffLimit: 6
+    template:
+      spec:
+        nodeSelector:
+          kubernetes.io/os: windows
+        containers:
+        - name: consumer-job
+          image: lncacr01.azurecr.io/queue-consumer-windows
+          resources:
+            requests:
+              cpu: 100m
+              memory: 2000Mi
+            limits:
+              cpu: 100m
+              memory: 2000Mi
+          env:
+          - name: AzureWebJobsStorage
+            valueFrom:
+              secretKeyRef:
+                name: secrets
+                key: AzureWebJobsStorage
+          - name: QUEUE_NAME
+            value: keda-queue
+  triggers:
+  - type: azure-queue
+    metadata:
+      queueName: keda-queue
+      queueLength: '10'
+      connectionFromEnv: AzureWebJobsStorage
