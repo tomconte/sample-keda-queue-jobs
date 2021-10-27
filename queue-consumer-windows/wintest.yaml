@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: wintest
+  name: wintest
+spec:
+  nodeSelector:
+    kubernetes.io/os: windows
+  containers:
+  - image: python:windowsservercore-1809
+    #image: larryms/queue-consumer-windows
+    name: wintest

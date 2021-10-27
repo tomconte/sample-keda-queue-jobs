@@ -53,7 +53,7 @@ python send_messages.py 100
 #### Try out scale-down mode
 # https://docs.microsoft.com/en-us/azure/aks/scale-down-mode
 
-CLUSTER_NAME="dellocatetest"
+CLUSTER_NAME="keda2"
 
 az aks create \
  -g $RG \
@@ -64,7 +64,8 @@ az aks create \
   --node-osdisk-type Managed \
   --enable-cluster-autoscaler \
   --min-count 1 \
-  --max-count 10
+  --max-count 10 \
+  --network-plugin azure 
 
 az aks nodepool update --scale-down-mode Deallocate --name nodepool1  --cluster-name $CLUSTER_NAME --resource-group $RG
   # -> doesn't work for ephemeral node pool
@@ -88,3 +89,4 @@ kubectl create secret generic secrets \
 kubectl apply -f azurequeue_scaledobject_jobs.yaml
 
 python send_messages.py 100
+
