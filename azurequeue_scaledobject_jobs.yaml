@@ -7,6 +7,8 @@ spec:
   #scaleType: job
   pollingInterval: 30
   maxReplicaCount: 50
+  successfulJobsHistoryLimit: 10
+  failedJobsHistoryLimit: 10
   jobTargetRef:
     parallelism: 1
     completions: 1
