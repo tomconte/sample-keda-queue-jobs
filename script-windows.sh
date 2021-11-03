@@ -4,7 +4,7 @@
 # Customize these variables for your environment:
 RG=kedatest
 LOCATION=westus2
-STORAGE_ACCOUNT_NAME=lnckeda2# must be globally unique
+STORAGE_ACCOUNT_NAME=lnckeda2 # must be globally unique
 export QUEUE_NAME=keda-queue
 
 az group create -l $LOCATION -n $RG
@@ -12,7 +12,7 @@ az storage account create -g $RG -n $STORAGE_ACCOUNT_NAME
 export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string --name $STORAGE_ACCOUNT_NAME --query connectionString -o tsv)
 az storage queue create -n $QUEUE_NAME
 
-CLUSTER_NAME="keda2"
+CLUSTER_NAME="keda2-w"
 
 az aks create \
  -g $RG \
