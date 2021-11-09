@@ -18,6 +18,6 @@ see [script-job-deallocate.sh]  and [azurequeue_scaledobject_jobs.yaml]
 
 ## Sample #3 - Windows nodes, managed disks with deallocate scaledown, workloads scheduled as jobs
 
-see [script-windows.sh]  and [azurequeue_scaledobject_jobs_windows.yaml]
+see (script-windows.sh)  and [azurequeue_scaledobject_jobs_windows.yaml]
 
 
