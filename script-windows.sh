@@ -2,7 +2,7 @@
 # Note: these commands are meant to be run via copy-n-paste, not all at once
 #
 # Customize these variables for your environment:
-RG=kedatest
+RG=keda-sample
 LOCATION=westus2
 STORAGE_ACCOUNT_NAME=lnckeda2 # must be globally unique
 export QUEUE_NAME=keda-queue

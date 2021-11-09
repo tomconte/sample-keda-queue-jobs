@@ -38,5 +38,5 @@ spec:
   - type: azure-queue
     metadata:
       queueName: keda-queue
-      queueLength: '10'
+      queueLength: '1'
       connectionFromEnv: AzureWebJobsStorage
